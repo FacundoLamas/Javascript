@@ -71,11 +71,13 @@ class producto{
     }
 }
 function cargar(arreglo){
+    let ids=[]
     let id,nombre,precio,cantidad,subtotal,cancelar;
     id=parseInt(cancelar = prompt("Ingrese el id del producto"));
-    while(isNaN(id) && cancelar !=null){
+    while((isNaN(id) && cancelar !=null) || id in arreglo){
         id=parseInt(prompt("ERROR-Ingrese el id del producto"));
     }
+    ids.push(id);
     while(id != 0 && cancelar != null){
         nombre=(prompt("Ingrese el nombre de su producto"));
         precio=parseInt(prompt("Ingrese el precio del producto"));
@@ -103,9 +105,10 @@ function cargar(arreglo){
         listado.appendChild(nuevoproducto);
         localStorage.setItem(`Producto ${id}`,JSON.stringify(productolistado));
         id=parseInt(cancelar = prompt("Ingrese el id del producto"));
-        while(isNaN(id) && cancelar !=null){
+        while((isNaN(id) && cancelar !=null) || (ids.includes(id) && id !=0)){
             id=parseInt(prompt("ERROR-Ingrese el id del producto"));
         }
+        ids.push(id);
     }
 }
 lista=[];
@@ -130,8 +133,13 @@ productos.forEach(function(objeto,i=0){
     objeto.addEventListener("click",function(){
         objeto.remove();
         localStorage.removeItem(`Producto ${objeto.id}`);
+        lista=lista.filter(function(elemento){
+            if(elemento.id == objeto.id){
+                return false;
+            }
+        });
     })
-    console.log(objeto.id);
+    
 });
 // const filtrado = lista.filter(function(objeto){
 //     return objeto.nombre.includes("a");

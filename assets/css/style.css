@@ -1,7 +1,11 @@
+body{
+    padding: 1%;
+    background-color: yellowgreen;
+}
 h2{
     text-align: center;
     border-bottom: solid;
-    
+
 }
 #productos{
     display: grid;
@@ -18,17 +22,9 @@ h2{
     grid-template-rows: 1fr;
     background-color: white;
 }
-.producto img{
-    max-width: 20%;
-    position:relative;
-    left: 80%;
-}
 .producto p{
     grid-column: izq / mid ;
 }
 .producto p img{
     max-width: 20%;
-    position:relative;
-    left: 80%;
-    grid-column: der;
 }
