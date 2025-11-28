@@ -94,7 +94,7 @@ function cargar(arreglo){
         let listado = document.getElementById("productos");
         let nuevoproducto = document.createElement("ol");
         nuevoproducto.innerHTML=`
-                    <p id="iden">ID:${id} <img src="./assets/img/eliminar.jpg" alt=""></p>
+                    <p id="iden">ID:${id} <img class="basura" src="./assets/img/eliminar.jpg" alt=""></p>
                     <p id="nombre">Nombre:${nombre}</p>
                     <p id="cantidad">Cantidad:${cantidad}</p>
                     <p id="precio">Precio:${precio}$</p>
@@ -128,19 +128,21 @@ if(buscado != null){
     }
 }
 let productos = document.querySelectorAll(".producto");
-
-productos.forEach(function(objeto,i=0){
-    objeto.addEventListener("click",function(){
-        objeto.remove();
-        localStorage.removeItem(`Producto ${objeto.id}`);
-        lista=lista.filter(function(elemento){
-            if(elemento.id == objeto.id){
-                return false;
-            }
-        });
-    })
-    
+let borrados = document.querySelectorAll(".basura");
+borrados.forEach(function(objeto2){
+    productos.forEach(function(objeto){
+        objeto2.addEventListener("click",function(){
+            objeto.remove();
+            localStorage.removeItem(`Producto ${objeto.id}`);
+            lista=lista.filter(function(elemento){
+                if(elemento.id == objeto.id){
+                    return false;
+                }
+            });
+        })
+    });
 });
+
 // const filtrado = lista.filter(function(objeto){
 //     return objeto.nombre.includes("a");
 // })
