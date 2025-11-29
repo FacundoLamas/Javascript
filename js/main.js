@@ -129,18 +129,32 @@ if(buscado != null){
 }
 let productos = document.querySelectorAll(".producto");
 let borrados = document.querySelectorAll(".basura");
-borrados.forEach(function(objeto2){
-    productos.forEach(function(objeto){
-        objeto2.addEventListener("click",function(){
+borrados.forEach(function(objeto2,i){
+    objeto2.addEventListener("click",function(){
+        let objeto = productos[i];
+        if(objeto){
             objeto.remove();
             localStorage.removeItem(`Producto ${objeto.id}`);
             lista=lista.filter(function(elemento){
+            if(elemento.id == objeto.id){
+                return false;
+            }
+            else{
+                return true
+            }
+            });
+            productos=productos.filter(function(elemento){
                 if(elemento.id == objeto.id){
                     return false;
                 }
-            });
-        })
-    });
+                else{
+                    return true;
+                }
+            })
+            
+        }
+        
+    })
 });
 
 // const filtrado = lista.filter(function(objeto){
