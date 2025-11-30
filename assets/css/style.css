@@ -1,33 +1,67 @@
-body{
-    padding: 1%;
-    background:(180deg, rgb(18, 14, 14),rgb(9, 9, 9));
+@keyframes click {
+  50% {
+    background-color: cadetblue;
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
-h2{
-    text-align: center;
-    border-bottom: solid;
-    border-color: white;
-    color: black;
+body {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
-#productos{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: auto;
-    align-items: center;
-    background-color:rgb(4, 0, 0);
-    border-radius: 10%;
+body #ListaProductos {
+  display: grid;
+  grid-template-columns: [prim] 1fr [segu] 1fr [terc] 1fr [cuar];
 }
-.producto{
-    border-radius: 10%;
-    margin: 5%;
-    padding: 5%;
-    display: grid;
-    grid-template-columns: [izq]2fr [mid] 1fr [der]1fr;
-    grid-template-rows: 1fr;
-    background-color: white;
+body #ListaProductos #hproducto {
+  display: flex;
+  flex-direction: column;
+  grid-column: prim/cuar;
+  justify-content: center;
+  padding: 5%;
+  gap: 20%;
+  align-items: center;
+  background-color: darkgray;
 }
-.producto p{
-    grid-column: izq / mid ;
+body #ListaProductos #productos {
+  grid-column: prim/cuar;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin: 5%;
 }
-.producto p img{
-    max-width: 20%;
+@media (max-width: 768px) {
+  body #ListaProductos #productos {
+    grid-template-columns: 1fr 1fr;
+  }
 }
+@media (max-width: 560px) {
+  body #ListaProductos #productos {
+    grid-template-columns: 1fr;
+  }
+}
+body #ListaProductos #productos .producto {
+  grid-column: 1fr;
+  border: solid;
+  border-radius: 10%;
+  border-color: black;
+  margin: 5%;
+  padding: 5%;
+  display: flex;
+  flex-direction: column;
+}
+body #ListaProductos #productos .producto p {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+  width: fit-content;
+}
+body #ListaProductos #productos .producto svg {
+  position: relative;
+  left: 80%;
+}
+body #ListaProductos #productos .click {
+  animation: click 0.8s linear 0s none;
+}
+
+/*# sourceMappingURL=style.css.map */
