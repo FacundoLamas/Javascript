@@ -73,9 +73,19 @@ padre.addEventListener("click",function(click){ //Agrego en el la delegacion de 
         }
     }
     if(click.target.classList.contains("producto")){
-        click.target.classList.add("click")
-        
+        click.target.classList.toggle("click");
     }
+});
+let borrar = document.getElementById("BotonBorrar");
+borrar.addEventListener("click",function(click){
+    let borro = document.querySelectorAll(".click");
+    borro.forEach(objeto => {
+        id = objeto.id;
+        localStorage.removeItem(`Producto ${id}`)
+        lista= lista.filter(objeto => objeto.id != id);
+        ids = ids.filter(objeto => objeto != id);
+        objeto.remove();
+    });
 });
 
 

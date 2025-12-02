@@ -1,10 +1,6 @@
 @keyframes click {
-  50% {
-    background-color: cadetblue;
-    transform: scale(1.1);
-  }
   100% {
-    transform: scale(1);
+    background-color: yellow;
   }
 }
 body {
@@ -61,7 +57,7 @@ body #ListaProductos #productos .producto svg {
   left: 80%;
 }
 body #ListaProductos #productos .click {
-  animation: click 0.8s linear 0s none;
+  animation: click 0.8s linear 0s forwards;
 }
 
 /*# sourceMappingURL=style.css.map */
