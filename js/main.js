@@ -66,8 +66,8 @@ function cargar(arreglo,ids){
         while((isNaN(id) && cancelar !=null) || (ids.includes(id)  && id != 0)){
             id=parseInt(cancelar = prompt("ERROR-Ingrese el id del producto"));
         }
-    ids.push(id);
     while(id != 0 && cancelar != null){
+        ids.push(id);
         nombre=(prompt("Ingrese el nombre de su producto"));
         precio=parseInt(prompt("Ingrese el precio del producto"));
         while(isNaN(precio)){
