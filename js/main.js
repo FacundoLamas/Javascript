@@ -63,8 +63,8 @@ function cargar(arreglo,ids){
     let id,nombre,precio,cantidad,subtotal,cancelar;
     
     id=parseInt(cancelar = prompt("Ingrese el id del producto"));
-        while((isNaN(id) && cancelar !=null) || (ids.includes(id) )){
-            id=parseInt(prompt("ERROR-Ingrese el id del producto"));
+        while((isNaN(id) && cancelar !=null) || (ids.includes(id)  && id != 0)){
+            id=parseInt(cancelar = prompt("ERROR-Ingrese el id del producto"));
         }
     ids.push(id);
     while(id != 0 && cancelar != null){
@@ -96,7 +96,7 @@ function cargar(arreglo,ids){
         listado.appendChild(nuevoproducto);
         localStorage.setItem(`Producto ${id}`,JSON.stringify(productolistado));
         id=parseInt(cancelar = prompt("Ingrese el id del producto"));
-        while((isNaN(id) && cancelar !=null) || (ids.includes(id) )){
+        while((isNaN(id) && cancelar !=null) || (ids.includes(id) && id != 0 )){
             id=parseInt(prompt("ERROR-Ingrese el id del producto"));
         }
         ids.push(id);
