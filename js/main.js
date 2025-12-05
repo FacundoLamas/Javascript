@@ -132,6 +132,19 @@ padre.addEventListener("click",function(click){ //Agrego en el la delegacion de 
             localStorage.removeItem(`Producto ${id}`)
             lista= lista.filter(objeto => objeto.id != id);
             ids = ids.filter(objeto => objeto != id);
+            let totals = document.querySelectorAll(".producto");
+            let total =0;
+            totals.forEach(objeto => {
+                id = objeto.id;
+                total = total + lista.find(a => a.id == id).subtotal;
+            });
+            htmltotal.innerText=`Total: ${total}$`;
+            let subtotales = document.querySelectorAll(".click");
+                subtotales.forEach(objeto => {
+                    id = objeto.id;
+                    subtotal = subtotal + lista.find(a => a.id == id).subtotal;
+                });
+            htmlsubtotal.innerText=`Subtotal seleccionado: ${subtotal}$`;
         }
     }
     if(click.target.classList.contains("producto")){
@@ -155,6 +168,19 @@ borrar.addEventListener("click",function(click){
         ids = ids.filter(objeto => objeto != id);
         objeto.remove();
     });
+    let totals = document.querySelectorAll(".producto");
+    let total =0;
+        totals.forEach(objeto => {
+            id = objeto.id;
+            total = total + lista.find(a => a.id == id).subtotal;
+        });
+    htmltotal.innerText=`Total: ${total}$`;
+    let subtotales = document.querySelectorAll(".click");
+        subtotales.forEach(objeto => {
+            id = objeto.id;
+            subtotal = subtotal + lista.find(a => a.id == id).subtotal;
+        });
+    htmlsubtotal.innerText=`Subtotal seleccionado: ${subtotal}$`;
 });
 
 // setTimeout(a => {
