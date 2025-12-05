@@ -1,12 +1,13 @@
 @keyframes click {
   100% {
-    background-color: yellow;
+    background-color: #f1c40f;
   }
 }
 body {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  background-color: black;
 }
 body #ListaProductos {
   display: grid;
@@ -20,7 +21,14 @@ body #ListaProductos #hproducto {
   padding: 5%;
   gap: 20%;
   align-items: center;
-  background-color: darkgray;
+  background-color: #2c3e50;
+}
+body #ListaProductos #hproducto h1 {
+  color: #ecf0f1;
+}
+body #ListaProductos #hproducto button {
+  background-color: #3498db;
+  color: #ecf0f1;
 }
 body #ListaProductos #productos {
   grid-column: prim/cuar;
@@ -42,7 +50,7 @@ body #ListaProductos #productos .producto {
   grid-column: 1fr;
   border: solid;
   border-radius: 10%;
-  border-color: black;
+  border-color: #2c3e50;
   margin: 5%;
   padding: 5%;
   display: flex;
@@ -51,6 +59,7 @@ body #ListaProductos #productos .producto {
 body #ListaProductos #productos .producto p {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
   width: fit-content;
+  color: #ecf0f1;
 }
 body #ListaProductos #productos .producto svg {
   position: relative;
@@ -58,6 +67,9 @@ body #ListaProductos #productos .producto svg {
 }
 body #ListaProductos #productos .click {
   animation: click 0.8s linear 0s forwards;
+}
+body #ListaProductos #productos .click p {
+  color: black;
 }
 
 /*# sourceMappingURL=style.css.map */
