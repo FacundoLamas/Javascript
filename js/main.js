@@ -1,4 +1,6 @@
-// localStorage.clear();
+
+let ids=[];
+let lista=[];
 class producto{
     constructor(id,nombre,precio,cantidad,subtotal){
         this.id = id;
@@ -11,12 +13,15 @@ class producto{
         return `Id: ${this.id}, Nombre: ${this.nombre}, precio: ${this.precio}, cantidad: ${this.cantidad}, subtotal: ${this.subtotal}`
     }
 }
-function leer(arreglo,ids){
+async function leer(arreglo,ids){
     let listado = document.getElementById("productos");
     let guardado = 0;
+    let total=0;
+    await espera();
     for(let i=0; i<localStorage.length;i++){
         let Producto = JSON.parse(localStorage.getItem(`Producto ${guardado+1}`));
         guardado++;
+        total = total + Producto.subtotal;
         arreglo.push(Producto);
         ids.push(Producto.id);
         let nuevoproducto = document.createElement("ol");
@@ -33,11 +38,31 @@ function leer(arreglo,ids){
         console.log(Producto);
         listado.appendChild(nuevoproducto);
     }
+    let htmltotal=document.getElementById("total");
+    htmltotal.innerText=`Total:${total}$`;
+
 }
+
+function espera(){
+        return new Promise(resolver => {
+            let header = document.getElementById("hproducto");
+            let barraCarga= document.createElement("div");
+            barraCarga.innerHTML=`
+            <p>Cargando</p>
+            `
+            barraCarga.setAttribute("class","barra");
+            header.appendChild(barraCarga)
+            setTimeout(resolver,3500);
+            setTimeout(a => {barraCarga.setAttribute("class","borrar");},3000);
+            setTimeout(a => {
+                header.removeChild(barraCarga);
+            },3600);
+            })
+        }
 function cargar(arreglo,ids){
     let id,nombre,precio,cantidad,subtotal,cancelar;
     id=parseInt(cancelar = prompt("Ingrese el id del producto"));
-    while(ids.includes(id) || id != 0 &&(isNaN(id) && cancelar !=null)){
+    while((isNaN(id) && cancelar !=null) || (ids.includes(id) && id !=0)){
         id=parseInt(prompt("ERROR-Ingrese el id del producto"));
     }
     ids.push(id);
@@ -47,6 +72,7 @@ function cargar(arreglo,ids){
         while(isNaN(precio)){
             precio=parseInt(prompt("ERROR-Ingrese el precio del producto"));        
         }
+        
         cantidad=parseInt(prompt("Ingrese la cantidad del producto"));
         while(isNaN(cantidad)){
             cantidad=parseInt(prompt("ERROR-Ingrese la cantidad del producto"));        
@@ -76,15 +102,20 @@ function cargar(arreglo,ids){
     }
 }
 let agregar=document.getElementById("BotonAgregar");
-let ids=[];
-let lista=[];
+
+leer(lista,ids);
+
+
 
 agregar.addEventListener("click",function(){
     cargar(lista,ids);
 });
 // Delegacion de eventos
+let subtotal=0;
+let htmlsubtotal=document.getElementById("subtotal");
 let padre = document.getElementById("productos"); //Tomo al padre de  la lista
 padre.addEventListener("click",function(click){ //Agrego en el la delegacion de eventos
+    
     if(click.target.classList.contains("basura")){ //click.target... es, "En donde clickeo tiene la clase 'basura'?"
         let producto = click.target.closest(".producto"); // Declaro a producto el elemento con clase producto mas cercano al click
         
@@ -99,6 +130,13 @@ padre.addEventListener("click",function(click){ //Agrego en el la delegacion de 
     if(click.target.classList.contains("producto")){
         click.target.classList.toggle("click");
     }
+    subtotal=0;
+    let subtotales = document.querySelectorAll(".click");
+        subtotales.forEach(objeto => {
+            id = objeto.id;
+            subtotal = subtotal + lista.find(a => a.id == id).subtotal;
+        });
+    htmlsubtotal.innerText=`Subtotal seleccionado: ${subtotal}$`;
 });
 let borrar = document.getElementById("BotonBorrar");
 borrar.addEventListener("click",function(click){
@@ -111,7 +149,10 @@ borrar.addEventListener("click",function(click){
         objeto.remove();
     });
 });
-leer(lista,ids);
+
+// setTimeout(a => {
+//     console.log("Esto tiene que aparecer en 5 segundos");
+// },5000);
 
 
 // let buscado = prompt("Ingrese el nombre del producto buscado")
