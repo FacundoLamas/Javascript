@@ -67,17 +67,28 @@ function cargar(arreglo,ids){
             id=parseInt(cancelar = prompt("ERROR-Ingrese el id del producto"));
         }
     while(id != 0 && cancelar != null){
+        nombre=(cancelar = prompt("Ingrese el nombre de su producto"));
+        if(cancelar == null){
+            break
+        }
+        precio=parseInt(cancelar = prompt("Ingrese el precio del producto"));
+        if(cancelar == null){
+            break
+        }
+        while(isNaN(precio)&& cancelar != null){
+            precio=parseInt(cancelar = prompt("ERROR-Ingrese el precio del producto"));        
+        }
+        if(cancelar == null){
+            break
+        }
+        cantidad=parseInt(cancelar = prompt("Ingrese la cantidad del producto"));
+        while(isNaN(cantidad) && cancelar != null){
+            cantidad=parseInt(cancelar = prompt("ERROR-Ingrese la cantidad del producto"));        
+        }
+        if(cancelar == null){
+            break
+        }
         ids.push(id);
-        nombre=(prompt("Ingrese el nombre de su producto"));
-        precio=parseInt(prompt("Ingrese el precio del producto"));
-        while(isNaN(precio)){
-            precio=parseInt(prompt("ERROR-Ingrese el precio del producto"));        
-        }
-        
-        cantidad=parseInt(prompt("Ingrese la cantidad del producto"));
-        while(isNaN(cantidad)){
-            cantidad=parseInt(prompt("ERROR-Ingrese la cantidad del producto"));        
-        }
         subtotal= cantidad * precio;
         productolistado= new producto(id,nombre,precio,cantidad,subtotal);
         arreglo.push(productolistado);
@@ -96,8 +107,14 @@ function cargar(arreglo,ids){
         listado.appendChild(nuevoproducto);
         localStorage.setItem(`Producto ${id}`,JSON.stringify(productolistado));
         id=parseInt(cancelar = prompt("Ingrese el id del producto"));
+        if(cancelar == null){
+            break;
+        }
         while((isNaN(id) && cancelar !=null) || (ids.includes(id) && id != 0 )){
-            id=parseInt(prompt("ERROR-Ingrese el id del producto"));
+            id=parseInt(cancelar = prompt("ERROR-Ingrese el id del producto"));
+        }
+        if(cancelar == null){
+            break;
         }
         ids.push(id);
     }
