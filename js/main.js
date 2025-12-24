@@ -6,13 +6,21 @@ class producto{
         this.id = id;
         this.nombre = nombre;
         this.precio = precio;
-        this.cantidad = cantidad;
+        //this.cantidad = cantidad;
         this.subtotal = subtotal;
     }
     lector(){
-        return `Id: ${this.id}, Nombre: ${this.nombre}, precio: ${this.precio}, cantidad: ${this.cantidad}, subtotal: ${this.subtotal}`
+        return `Id: ${this.id}, Nombre: ${this.nombre}, precio: ${this.precio}`
     }
 }
+const listafija=[
+    {id:1, nombre:"Manzana",precio:300},
+    { id: 2, nombre: "Pera", precio: 500 },
+    { id: 3, nombre: "Mandarina", precio: 450 },
+    { id: 4, nombre: "Naranja", precio: 300 },
+    { id: 5, nombre: "Cereza", precio: 500 },
+    { id: 6, nombre: "Caqui", precio: 450 }
+]
 async function leer(arreglo,ids){
     let listado = document.getElementById("productos");
     let guardado = 0;
