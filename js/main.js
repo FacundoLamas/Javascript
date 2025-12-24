@@ -73,8 +73,16 @@ leer(lista,ids);
 
 let htmltotal=document.getElementById("total");
 
-
-
+agregar.addEventListener("click",function(){
+    cargar(lista,ids);
+    let totals = document.querySelectorAll(".producto");
+    let total =0;
+        totals.forEach(objeto => {
+            id = objeto.id;
+            total = total + lista.find(a => a.id == id).subtotal;
+        });
+    htmltotal.innerText=`Total: ${total}$`;
+});
 // Delegacion de eventos
 let subtotal=0;
 let htmlsubtotal=document.getElementById("subtotal");
