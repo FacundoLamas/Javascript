@@ -168,25 +168,7 @@ function ingresos(){
 
 
 
-// El objeto que queremos "guardar" en la base de datos
-const nuevoPost = {
-    title: 'Aprendiendo Fetch',
-    body: 'Este es el contenido de mi artículo de prueba.',
-    userId: 1,
-};
 
-fetch('https://jsonplaceholder.typicode.com/posts', {
-    method: 'POST', // 1. Indicamos que vamos a enviar datos
-    body: JSON.stringify(nuevoPost), // 2. Convertimos el objeto JS a texto JSON
-    headers: {
-    'Content-type': 'application/json; charset=UTF-8', // 3. Avisamos al servidor que enviamos JSON
-    },
-})
-    .then((response) => response.json())
-    .then((data) => {
-    console.log('¡Éxito! El servidor respondió con lo que "creó":');
-    console.log(data);
-});
 
 let botoningreso
 botoningreso = document.getElementById("ingresar");
