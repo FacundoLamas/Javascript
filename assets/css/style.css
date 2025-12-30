@@ -4,6 +4,16 @@
   box-sizing: border-box;
 }
 
+@keyframes sobre {
+  to {
+    background-color: #ecf0f1;
+  }
+}
+@keyframes fuera {
+  from {
+    background-color: #ecf0f1;
+  }
+}
 body {
   margin: 0;
   padding: 0;
@@ -24,6 +34,7 @@ body #login {
   display: flex;
   padding: 5%;
   align-items: center;
+  height: 80vh;
 }
 body #login p {
   height: 50%;
@@ -36,5 +47,15 @@ body #login p {
   justify-content: center;
   align-items: center;
 }
-
-/*# sourceMappingURL=style.css.map */
+body #login p:hover {
+  animation: sobre 0.4s linear forwards;
+}
+body #login p:hover :first-child {
+  animation: sobre 0.4s linear forwards;
+}
+body #login p:not(:hover) {
+  animation: fuera 0.4s linear forwards;
+}
+body #login p:not(:hover) :first-child {
+  animation: fuera 0.4s linear forwards;
+}/*# sourceMappingURL=style.css.map */
