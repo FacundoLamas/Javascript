@@ -38,147 +38,43 @@
     opacity: 1;
   }
 }
-body {
-  box-sizing: border-box;
-  padding: 0;
+* {
   margin: 0;
-  background-color: black;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+  box-sizing: border-box;
+  background-color: #2c3e50;
+  display: grid;
+  grid-template-columns: [primera] 1fr [segunda] 1fr [tercera] 1fr [cuarta];
+  grid-template-rows: [primera] 1fr [segunda] 1fr [tercera] 1fr [cuarta];
 }
 body #ListaProductos {
-  display: flex;
-  flex-direction: column;
-}
-body #ListaProductos #hproducto {
-  display: flex;
-  flex-direction: column;
-  gap: 5%;
-  justify-content: center;
-  padding: 2% 5% 5% 5%;
-  align-items: center;
-  background-color: #2c3e50;
-  max-height: 30%;
-}
-body #ListaProductos #hproducto h1 {
-  color: #ecf0f1;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-}
-body #ListaProductos #hproducto div {
-  width: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  justify-content: space-between;
-}
-@media (max-width: 768px) {
-  body #ListaProductos #hproducto div {
-    width: 100%;
-  }
-}
-body #ListaProductos #hproducto div button {
-  background-color: #3498db;
-  color: #ecf0f1;
-}
-body #ListaProductos #hproducto div button p {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-}
-body #ListaProductos #hproducto .barra {
-  position: relative;
-  right: 50%;
-  padding: 1%;
-  display: block;
-  width: 1%;
-  margin-left: 5%;
-  margin-right: 5%;
-  animation: barra 3s linear forwards;
-  background-color: white;
-}
-body #ListaProductos #hproducto .barra p {
-  opacity: 0;
-  text-align: end;
-  animation: pbarra 1s linear forwards;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  color: black;
-}
-body #ListaProductos #hproducto .borrar {
-  position: relative;
-  text-align: center;
-  padding: 1%;
-  display: block;
-  width: 100%;
-  margin-left: 5%;
-  margin-right: 5%;
-  background-color: white;
-  animation: eliminar 1s linear forwards;
-}
-body #ListaProductos #hproducto .borrar p {
-  text-align: end;
-}
-body #ListaProductos #hproducto .totales {
-  color: white;
-}
-@media (max-width: 768px) {
-  body #ListaProductos #hproducto .totales {
-    display: flex;
-    flex-direction: column;
-  }
-}
-body #ListaProductos #hproducto .totales p {
-  align-content: center;
-  height: 100%;
-  background-color: #3498db;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-}
-body #ListaProductos #hproducto .ingreso {
-  display: flex;
-  justify-content: center;
-  border: solid;
-  border-width: 5px;
   background-color: #ecf0f1;
-}
-body #ListaProductos #hproducto .ingreso #Ingresar {
-  text-align: center;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  justify-items: center;
+  grid-column: segunda/tercera;
+  grid-row: segunda/tercera;
+  width: 100%;
+  background-color: #3498db;
+  display: flex;
+  padding: 5%;
   align-items: center;
 }
-body #ListaProductos #productos {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  margin: 5%;
-}
-@media (max-width: 768px) {
-  body #ListaProductos #productos {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-@media (max-width: 560px) {
-  body #ListaProductos #productos {
-    grid-template-columns: 1fr;
-  }
-}
-body #ListaProductos #productos .producto {
-  border: solid;
-  border-radius: 10%;
-  border-color: #2c3e50;
-  margin: 5%;
-  padding: 5%;
-  display: flex;
-  flex-direction: column;
-}
-body #ListaProductos #productos .producto p {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  width: fit-content;
-  color: #ecf0f1;
-}
-body #ListaProductos #productos .producto svg {
-  position: relative;
-  left: 80%;
-}
-body #ListaProductos #productos .click {
-  animation: click 0.8s linear 0s forwards;
-}
-body #ListaProductos #productos .click p {
+body #ListaProductos p {
+  height: 50%;
+  text-align: center;
+  background-color: #f1c40f;
   color: black;
+  width: 100%;
+  font-size: xx-large;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /*# sourceMappingURL=style.css.map */
