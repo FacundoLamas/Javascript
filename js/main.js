@@ -9,7 +9,7 @@ function ingresos(){
             if(data.find(objeto=> objeto.username == user)){
                 alert("Ingreso exitoso");
                 localStorage.setItem("login",1);
-                window.location.href = "pagina.html";
+                window.location.href = "./pages/productos.html";
             }
             else{
                 alert("Ingreso fallido");
