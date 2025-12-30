@@ -1,43 +1,3 @@
-@keyframes click {
-  100% {
-    background-color: #f1c40f;
-    scale: 1.1;
-  }
-}
-@keyframes barra {
-  0% {
-    opacity: 0;
-  }
-  5% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 1;
-    width: 100%;
-    right: 0%;
-  }
-}
-@keyframes eliminar {
-  30% {
-    opacity: 0;
-    padding: 0;
-  }
-  70% {
-    opacity: 0;
-    padding: 0;
-    height: 0;
-  }
-  100% {
-    opacity: 0;
-    padding: 0;
-    height: 0;
-  }
-}
-@keyframes pbarra {
-  100% {
-    opacity: 1;
-  }
-}
 * {
   margin: 0;
   padding: 0;
@@ -55,7 +15,7 @@ body {
   grid-template-columns: [primera] 1fr [segunda] 1fr [tercera] 1fr [cuarta];
   grid-template-rows: [primera] 1fr [segunda] 1fr [tercera] 1fr [cuarta];
 }
-body #ListaProductos {
+body #login {
   background-color: #ecf0f1;
   grid-column: segunda/tercera;
   grid-row: segunda/tercera;
@@ -65,7 +25,7 @@ body #ListaProductos {
   padding: 5%;
   align-items: center;
 }
-body #ListaProductos p {
+body #login p {
   height: 50%;
   text-align: center;
   background-color: #f1c40f;
