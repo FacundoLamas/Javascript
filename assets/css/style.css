@@ -71,7 +71,13 @@ body #login form div label div input {
   width: 80%;
   background-color: #f1c40f;
 }
-body #login form div label div p {
+body #login form div label div input:hover {
+  animation: sobre 0.4s linear forwards;
+}
+body #login form div label div input:not(:hover) {
+  animation: fuera 0.4s linear forwards;
+}
+body #login form div label div input p {
   -webkit-text-decoration: solid;
           text-decoration: solid;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
