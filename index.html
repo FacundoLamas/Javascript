@@ -1,28 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <script defer src="./js/main.js"></script>
-</head>
-<body id="body">
-    <div id="ListaProductos">
-        <div id="hproducto">
-            <h1>Lista de productos</h1>
-            <div>
-                <button type="button" id="BotonAgregar"><p>Agregar productos</p></button>
-                <button type="button" id="BotonBorrar"><p>Borrar seleccionados</p></button>
-            </div>
-            <div class="totales">
-                <p id="total">Total:0$</p>
-                <p id="subtotal">Subtotal de seleccionados:0$</p>
-            </div>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="./assets/css/style.css">
+        <script defer src="./js/main.js"></script>
+    </head>
+    <body id="body">
+        <div id="login">
+            <h1>Ingreso</h1>
+            <!-- <p id="Ingresar">Ingresar</p> -->
+            <form action="" id="formulario">
+                <div>
+                    <label for="input">
+                        <div>
+                            <p>Usuario</p>
+                            <input type="text"  id="user">
+                        </div>
+                        <div>
+                            <p>Contraseña</p>
+                            <input type="text" id="password">
+                        </div>
+                        <div>
+                            <input type="submit" value="Ingresar" id="submit">
+                        </div>
+                        
+                    </label>
+                </div>
+            </form>
         </div>
-        <div id="productos">
-
-        </div>
-    </div>
-</body>
+    </body>
 </html>
+<!-- &:hover{
+                animation: sobre 0.4s linear forwards;
+                :first-child{
+                    animation: sobre 0.4s linear forwards;
+                }
+            }
+            &:not(:hover){
+                animation: fuera 0.4s linear forwards;
+                :first-child{
+                    animation: fuera 0.4s linear forwards;
+                }
+            } -->
